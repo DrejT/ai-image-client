@@ -22,7 +22,6 @@ export const links: LinksFunction = () => [
 // returns a username if a cookie exists or returns null
 export const loader =async ({request}:LoaderArgs) => {
   const username = await getUsername(request);
-  console.log(username);
   return username;
 }
 
