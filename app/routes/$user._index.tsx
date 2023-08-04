@@ -1,13 +1,23 @@
-import type { ActionArgs, LoaderArgs } from "@remix-run/node";
-import { useActionData, useLoaderData } from "@remix-run/react";
+import { type ActionArgs, type LoaderArgs } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
 import { PostsList } from "~/components/user/posts";
-import { action } from "./create._index";
+
+
+export const action =async ({request}:ActionArgs) => {
+}
+
+
 
 export const loader = async ({params}:LoaderArgs) => {
-    const request = await fetch(`http://localhost:8080/user/${params.user}`)
-    const data = await request.json();
-    console.log(data);
-    return data;
+    console.log(params.user);
+    const request = await fetch(`http://localhost:8080/user/${params.user}`);
+    if (request !== null){
+        const data = await request.json();
+        return data;
+
+    } else {
+        return null
+    }
 }
 
 export default function UserIndex(){
