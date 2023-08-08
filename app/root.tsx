@@ -39,7 +39,8 @@ export default function App() {
       <body>
         {data? (
           <LoginNavbar />
-        ): <Navbar />}
+        ):(
+          <Navbar />)}
         <Outlet />
         <ScrollRestoration />
         <Scripts />

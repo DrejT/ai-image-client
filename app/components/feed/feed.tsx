@@ -1,22 +1,11 @@
-import Postcard from "./postcard"
+import Postcard from "../user/postcard";
+import type { PostsListProps } from "../user/posts";
 
-export type post = {
-    id:string;
-    prompt:string;
-    createdAt:Date;
-    imageUrl:string;
-    userName:string;
-}
-
-export interface PostsListProps {
-    posts: post[];
-  }
-
-export function PostsList({posts}: PostsListProps){
+export default function Feed({posts}:PostsListProps) {
     return (
         <>
         {
-            posts.map((postObj) => (
+            posts.map((postObj:any) => (
                 <div key={postObj.id}>
                     <Postcard 
                     id={postObj.id}

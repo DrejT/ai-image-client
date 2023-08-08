@@ -12,7 +12,6 @@ export const action = async ({request}:ActionArgs) => {
         case "createform": {
             const image  = await fetch(`http://localhost:8080/generate/${form.get("prompt")}`);
             const data = await image.json();
-            console.log(data);
             return data;
         }
         case "submitform": {
